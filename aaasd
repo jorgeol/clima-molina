@@ -1,0 +1,29 @@
+package com.glajosa.jortiz.climamolina.controlador;
+
+import com.glajosa.jortiz.climamolina.modelo.ClimaDia;
+import com.glajosa.jortiz.climamolina.modelo.ClimaHora;
+import com.glajosa.jortiz.climamolina.webservice.ClimaActualJSON;
+
+public class ClimaActualController {
+
+    public ClimaHora traerClimaHora(String idOrig) throws Exception{
+
+        ClimaActualJSON climaActualJSON = new ClimaActualJSON();
+        ClimaHora climaHora = new ClimaHora();
+        climaHora = climaActualJSON.obtenerClimaActual(idOrig, "1");
+        return climaHora;
+    }
+
+    public ClimaDia traerTempMaxMin (String idOrig) throws Exception{
+        ClimaActualJSON climaActualJSON = new ClimaActualJSON();
+        ClimaDia climaDia = new ClimaDia();
+        climaDia = climaActualJSON.obtenerTempMaxMin(idOrig, "2");
+        return climaDia;
+    }
+
+    public Double obtenerSensacionTermica(){
+
+        return 25.0;
+    }
+
+}
